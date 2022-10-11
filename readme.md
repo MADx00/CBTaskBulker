@@ -42,6 +42,9 @@ To Start using you need to do:
 - Store all targeted endpoint "Sensor ID" in "id.txt", then use the help to run CBTaskBulker
 - Verify/Change "run.bat" to fit your needs
     - Make sure that the results are stored in ".\DFIR_TASK\output" folder
+- Create folder and name it "Task" (next to CBTaskBulker.py)
+- Add you Task binary and its dependencies (e.g. [Loki](https://github.com/Neo23x0/Loki/releases))
+- Compress "Task" folder to be "Task.zip"
 - Run your task and chill :)
 
  
