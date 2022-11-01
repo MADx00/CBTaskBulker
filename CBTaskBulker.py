@@ -132,7 +132,6 @@ def clean_folder(agentID, remote_directory_list):
 # Outpout: None
 def get_output_files(agentID):
     remote_ouput_path = task_dst_directory + "\\output"
-    print(remote_ouput_path)
     try:
         with cb.select(Sensor, agentID).lr_session() as lr_session:
             print("[INFO] [{}] Listing files in DFIR_Task".format(agentID))
@@ -145,7 +144,6 @@ def get_output_files(agentID):
     if not os.path.isdir(local_output_path):
         os.mkdir(local_output_path)
     for remote_path, subdir_names, remote_file_names in walked_directory:
-        print("Mad")
         for file in remote_file_names:
             file_to_download = remote_path+"\\"+file
             try:
@@ -156,7 +154,6 @@ def get_output_files(agentID):
                     with open(local_downlaod_file, "wb") as fw:
                         fw.write(data)
                         print("[INFO] [{}] File is downlaoded {}".format(agentID, file_to_download))
-                        print(data)
             except Exception as e:
                 print("[ERROR] [{}] [get_output_files] General Exception: {}".format(agentID, e))
 
