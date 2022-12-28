@@ -84,7 +84,7 @@ def upload_file(agentID):
 def run_bat(agentID):
     try:
         with cb.select(Sensor, agentID).lr_session() as lr_session:
-            lr_session.create_process(task_run_cmd)
+            lr_session.create_process(task_run_cmd, wait_for_output=False, wait_for_completion=False)
             print("[INFO] [{}] Task Executed".format(agentID))
     except cbapi.errors.TimeoutError as e:
         print("[ERROR] [{}] [run_bat] Timeout Error: {}".format(agentID, e))
